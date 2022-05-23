@@ -1,12 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace guessing_game
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+Console.WriteLine("Guess a number");
+string userGuess = Console.ReadLine();
+Console.WriteLine(userGuess);
