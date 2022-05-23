@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-int secretNumber = 42;
+Random r = new Random();
+int secretNumber = r.Next(1, 101);
+Console.WriteLine(secretNumber);
 
 int guessFunc() 
 {
@@ -12,9 +14,9 @@ int guessFunc()
 }
 
 int guess = guessFunc();
-int count = 0;
+int count = 3;
 
-while(count < 3)
+while(count != 0)
 {
     if (guess == secretNumber) 
     {
@@ -24,8 +26,8 @@ while(count < 3)
     else 
     {
         Console.WriteLine("Nah dude, try again.");
-        count++;
-        Console.WriteLine($"Your guess {count}");
+        count--;
+        Console.WriteLine($"Guesses left: {count +1}");
     }
     guess = guessFunc();
 }
