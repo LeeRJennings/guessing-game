@@ -7,7 +7,7 @@ int secretNumber = r.Next(1, 101);
 
 int guessFunc() 
 {
-    Console.Write("Guess a number ");
+    Console.Write("Guess a number: ");
     string userGuess = Console.ReadLine();
     int usersGuessParsed = int.Parse(userGuess);
     return usersGuessParsed;
