@@ -12,9 +12,9 @@ int guessFunc()
 }
 
 int guess = guessFunc();
-int count = 1;
+int count = 0;
 
-while(count < 4)
+while(count < 3)
 {
     if (guess == secretNumber) 
     {
@@ -25,6 +25,7 @@ while(count < 4)
     {
         Console.WriteLine("Nah dude, try again.");
         count++;
+        Console.WriteLine($"Your guess {count}");
     }
     guess = guessFunc();
 }
