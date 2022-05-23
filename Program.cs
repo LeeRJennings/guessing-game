@@ -25,8 +25,15 @@ while(count != 0)
     }
     else 
     {
-        Console.WriteLine("Nah dude, try again.");
         count--;
+        if (guess > secretNumber) 
+        {
+            Console.WriteLine("That guess was too high.");
+        }
+        else if (guess < secretNumber)
+        {
+            Console.WriteLine("That guess was too low.");
+        }
         Console.WriteLine($"Guesses left: {count +1}");
     }
     guess = guessFunc();
