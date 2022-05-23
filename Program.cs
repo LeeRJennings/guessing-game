@@ -3,20 +3,48 @@ using System.Collections.Generic;
 
 Random r = new Random();
 int secretNumber = r.Next(1, 101);
-Console.WriteLine(secretNumber);
+Console.WriteLine($"The secret number is: {secretNumber}");
 
 int guessFunc() 
 {
-    Console.WriteLine("Guess a number");
+    Console.Write("Guess a number ");
     string userGuess = Console.ReadLine();
     int usersGuessParsed = int.Parse(userGuess);
     return usersGuessParsed;
 }
 
-int guess = guessFunc();
-int count = 3;
+int difficultySelection()
+{
+    Console.WriteLine("Select a difficulty");
+    Console.WriteLine("1) Easy");
+    Console.WriteLine("2) Medium");
+    Console.WriteLine("3) Hard");
+    string userDifficultyINput = Console.ReadLine();
+    int selectedDifficulty = int.Parse(userDifficultyINput);
 
-while(count != 0)
+    if(selectedDifficulty == 3) 
+    {
+        return 3;
+    }
+    else if (selectedDifficulty == 2)
+    {
+        return 5;
+    }
+    else if (selectedDifficulty == 1) 
+    {
+        return 7;
+    }
+    else 
+    {
+        return 0;
+    }
+};
+
+int userDifficulty = difficultySelection();
+int guess = guessFunc();
+int count = 0;
+
+while(count != userDifficulty)
 {
     if (guess == secretNumber) 
     {
@@ -25,7 +53,7 @@ while(count != 0)
     }
     else 
     {
-        count--;
+        count++;
         if (guess > secretNumber) 
         {
             Console.WriteLine("That guess was too high.");
@@ -34,7 +62,7 @@ while(count != 0)
         {
             Console.WriteLine("That guess was too low.");
         }
-        Console.WriteLine($"Guesses left: {count +1}");
+        Console.WriteLine($"Guesses left: {userDifficulty - count +1}");
     }
     guess = guessFunc();
 }
